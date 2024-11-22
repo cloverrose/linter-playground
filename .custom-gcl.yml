@@ -1,0 +1,8 @@
+# https://golangci-lint.run/plugins/module-plugins/
+version: v1.62.0
+name: custom-golangci-lint
+destination: bin
+plugins:
+  - module: 'github.com/cloverrose/mockguard'
+    import: 'github.com/cloverrose/mockguard'
+    version: v0.1.0

@@ -1,0 +1,64 @@
+run:
+  # Number of operating system threads (`GOMAXPROCS`) that can execute golangci-lint simultaneously.
+  # If it is explicitly set to 0 (i.e. not the default) then golangci-lint will automatically set the value to match Linux container CPU quota.
+  # Default: the number of logical CPUs in the machine
+  concurrency: 0
+
+  # Timeout for analysis, e.g. 30s, 5m.
+  # Default: 1m
+  timeout: 5m
+
+# output configuration options
+output:
+  # Sort results by the order defined in `sort-order`.
+  # Default: false
+  sort-results: true
+
+  # Order to use when sorting results.
+  # Require `sort-results` to `true`.
+  # Possible values: `file`, `linter`, and `severity`.
+  #
+  # If the severity values are inside the following list, they are ordered in this order:
+  #   1. error
+  #   2. warning
+  #   3. high
+  #   4. medium
+  #   5. low
+  # Either they are sorted alphabetically.
+  #
+  # Default: ["file"]
+  sort-order:
+    - linter
+    - severity
+    - file # filepath, line, and column.
+
+  # Show statistics per linter.
+  # Default: false
+  show-stats: true
+
+linters-settings:
+  custom:
+    mockguard:
+      type: "module"
+      description: check mockgen usage.
+      settings:
+        FileName: types.go
+        Content: "//go:generate mockgen -source=$GOFILE -package=$GOPACKAGE --destination=mock_$GOFILE"
+
+linters:
+  # Disable all linters.
+  # Default: false
+  disable-all: true
+  # Enable specific linter
+  # https://golangci-lint.run/usage/linters/#enabled-by-default
+  enable:
+    - mockguard
+
+  # Enable only fast linters from enabled linters set (first run won't be fast)
+  # Default: false
+  fast: false
+
+# Configuration of issue rules
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
