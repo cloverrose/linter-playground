@@ -6,3 +6,6 @@ plugins:
   - module: 'github.com/cloverrose/mockguard'
     import: 'github.com/cloverrose/mockguard'
     version: v0.1.0
+  - module: 'github.com/cloverrose/unusedinterface'
+    import: 'github.com/cloverrose/unusedinterface'
+    version: v0.2.3

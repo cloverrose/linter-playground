@@ -44,6 +44,9 @@ linters-settings:
       settings:
         FileName: types.go
         Content: "//go:generate mockgen -source=$GOFILE -package=$GOPACKAGE --destination=mock_$GOFILE"
+    unusedinterface:
+      type: "module"
+      description: check unused interface
 
 linters:
   # Disable all linters.
@@ -53,6 +56,7 @@ linters:
   # https://golangci-lint.run/usage/linters/#enabled-by-default
   enable:
     - mockguard
+    - unusedinterface
 
   # Enable only fast linters from enabled linters set (first run won't be fast)
   # Default: false
