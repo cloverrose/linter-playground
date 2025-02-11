@@ -25,17 +25,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Install Aqua 1 # need to install Go before other packages.
-        uses: aquaproj/aqua-installer@f13c5d2f0357708d85477aabe50fd3f725528745 # v3.1.0
+        uses: aquaproj/aqua-installer@5e54e5cee8a95ee2ce7c04cb993da6dfad13e59c # v3.1.2
         with:
-          aqua_version: v2.38.0
+          aqua_version: v2.48.1
           aqua_opts: "" # default option is 'l' that create links but skip downloading packages.
         env:
           AQUA_CONFIG: .aqua/aqua-go.yaml
       - run: go version
       - name: Install Aqua 2
-        uses: aquaproj/aqua-installer@f13c5d2f0357708d85477aabe50fd3f725528745 # v3.1.0
+        uses: aquaproj/aqua-installer@5e54e5cee8a95ee2ce7c04cb993da6dfad13e59c # v3.1.2
         with:
-          aqua_version: v2.38.0
+          aqua_version: v2.48.1
           aqua_opts: "" # default option is 'l' that create links but skip downloading packages.
         env:
           AQUA_CONFIG: .aqua/aqua.yaml

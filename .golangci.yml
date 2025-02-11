@@ -43,10 +43,33 @@ linters-settings:
       description: check mockgen usage.
       settings:
         FileName: types.go
-        Content: "//go:generate mockgen -source=$GOFILE -package=$GOPACKAGE --destination=mock_$GOFILE"
+        Content: "//go:generate mockgen -source=$GOFILE -package=$GOPACKAGE --destination=mock_test.go"
     unusedinterface:
       type: "module"
-      description: check unused interface
+      description: unusedinterface find interface that are not used in their package
+    pkgdep:
+      type: "module"
+      description: pkgdep validates if package dependency follows rule.
+      settings:
+        config: "./.pkgdep.yaml"
+        log:
+          level: "DEBUG"
+          file: "./out/log.txt"
+          format: "json"
+        inspector:
+          file: "./out/used_rules.csv"
+    rpc_callvalidate:
+      type: "module"
+      description: check if RPC method uses Validate method properly.
+      settings:
+        LogLevel: "ERROR"
+    rpc_wraperr:
+      type: "module"
+      description:  check if RPC method returns wrapped error.
+      settings:
+        LogLevel: "ERROR"
+        ReportMode: "RETURN"
+        IncludePackages: "github.com/cloverrose/linterplayground/.*"
 
 linters:
   # Disable all linters.
@@ -57,6 +80,9 @@ linters:
   enable:
     - mockguard
     - unusedinterface
+    - pkgdep
+    - rpc_callvalidate
+    - rpc_wraperr
 
   # Enable only fast linters from enabled linters set (first run won't be fast)
   # Default: false
@@ -67,6 +93,6 @@ issues:
   max-issues-per-linter: 0
   max-same-issues: 0
   exclude-rules:
-    - path: internal/c
+    - path: internal/mockguard/ng_filename
       linters:
         - unusedinterface

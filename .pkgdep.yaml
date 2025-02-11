@@ -1,0 +1,16 @@
+---
+targetPackagePrefixList:
+  - github.com/cloverrose/linter-playground
+  - github.com/cloverrose/linterplayground
+isExcludeTests: true
+dependencies:
+  # important
+  github.com/cloverrose/linterplayground/internal/pkgdep/.*:
+    - github.com/cloverrose/linterplayground/internal/pkgdep/a
+  # important 1
+  github.com/cloverrose/linterplayground/internal/pkgdep/d:
+    - github.com/cloverrose/linterplayground/internal/pkgdep/a
+  github.com/cloverrose/linterplayground/internal/pkgdep/c:
+    - github.com/cloverrose/linterplayground/internal/pkgdep/a
+  github.com/cloverrose/linterplayground/internal/pkgdep/e:
+    - github.com/cloverrose/linterplayground/internal/pkgdep/a
