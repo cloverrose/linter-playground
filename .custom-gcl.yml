@@ -14,4 +14,4 @@ plugins:
     version: v0.6.3
   - module: 'github.com/cloverrose/rpcguard'
     import: 'github.com/cloverrose/rpcguard'
-    version: v0.5.5
+    version: v0.6.0

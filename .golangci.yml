@@ -62,14 +62,18 @@ linters-settings:
       type: "module"
       description: check if RPC method uses Validate method properly.
       settings:
-        LogLevel: "ERROR"
+        log:
+          level: "DEBUG"
+          file: "./out/rpc_callvalidate.log"
     rpc_wraperr:
       type: "module"
       description:  check if RPC method returns wrapped error.
       settings:
-        LogLevel: "ERROR"
-        ReportMode: "RETURN"
-        IncludePackages: "github.com/cloverrose/linterplayground/.*"
+        log:
+          level: "DEBUG"
+          file: "./out/rpc_wraperr.log"
+        reportMode: "RETURN"
+        includePackages: "github.com/cloverrose/linterplayground/.*"
 
 linters:
   # Disable all linters.
