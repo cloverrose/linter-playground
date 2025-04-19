@@ -16,4 +16,5 @@ plugins:
     import: 'github.com/cloverrose/rpcguard'
     version: v0.6.1
   - module: 'github.com/cloverrose/connectnew'
-    path: ../connectnew
+    import: 'github.com/cloverrose/connectnew'
+    version: v0.1.3
