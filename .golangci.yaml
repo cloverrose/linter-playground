@@ -7,6 +7,7 @@ linters:
     - rpc_callvalidate
     - rpc_wraperr
     - unusedinterface
+    - connectnew
   settings:
     custom:
       mockguard:
@@ -45,6 +46,10 @@ linters:
       unusedinterface:
         type: module
         description: unusedinterface find interface that are not used in their package
+      connectnew:
+        type: module
+        description: connectnew checks if &connect.Request or &connect.Response are used. Instead connect.NewRequest or connect.NewResponse should be used.
+
   exclusions:
     generated: lax
     presets:
